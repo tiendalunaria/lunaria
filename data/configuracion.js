@@ -2,7 +2,7 @@
 // (botón "Publicar para TODOS"). Se aplica a TODOS los visitantes de
 // https://tiendalunaria.github.io/lunaria/ — nadie necesita editar este archivo a mano.
 window.CONFIG_PUBLICADA = {
-  "version": 1792588720869,
+  "version": 1793069369405,
   "tienda": {
     "nombre": "LUNARIA",
     "logo": "logo_120.png",
@@ -32,6 +32,8 @@ window.CONFIG_PUBLICADA = {
     "redondeo": 1000,
     "margenesPorCategoria": {
       "joyas": 0.7,
+      "juguetes": 0.5,
+      "urbana": 0.2,
       "moda": 0.6,
       "pijamas": 0.6,
       "conjuntos": 0.6,
@@ -41,11 +43,9 @@ window.CONFIG_PUBLICADA = {
       "enterizos": 0.6,
       "ninos": 0.6,
       "navidad": 0.6,
-      "juguetes": 0.5,
-      "escolar": 0.5,
       "bebe": 0.25,
-      "regalos": 0.3,
-      "urbana": 0.2
+      "escolar": 0.5,
+      "regalos": 0.3
     },
     "temporadaIds": [],
     "temporadaCats": "juguetes,regalos,joyas,navidad",
