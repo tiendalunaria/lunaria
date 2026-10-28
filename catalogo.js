@@ -1,10 +1,10 @@
 // ======================================================================
 // catalogo.js de LUNARIA - generado automaticamente por scripts/sync_catalogos.py
-// (2026-10-28 12:37). NO editar a mano: el cron de GitHub Actions lo regenera.
+// (2026-10-28 18:35). NO editar a mano: el cron de GitHub Actions lo regenera.
 // Fuentes: inventario propio de la marca (gestión interna de LUNARIA)
 // ======================================================================
 const CATALOGO_LUNARIA=[
-/* moda: 89 productos */
+/* moda: 88 productos */
 {id:"m01",n:"Pantalon Corset con Correa",p:101000,cat:"conjuntos",prov:"l2",cid:"LUN-0001",img:"img/p/2619647c4a1fffa5.webp",imgs:["img/p/f6b01737672673ed.webp","img/p/2d4ced5a274ae322.webp"],var:{"Estampado":["Negro","Beiz","Blanco"]}},
 {id:"m02",n:"Conjunto Chaleco Manga Larga",p:99000,cat:"conjuntos",prov:"l2",cid:"LUN-0002",img:"img/p/726a805d74c7e431.webp",imgs:["img/p/0e17fd0384cda0bf.webp","img/p/fd06f769198c10cf.webp"],var:{"Estampado":["Blanco","Negro","Beige"]}},
 {id:"m03",n:"Pantalon Camisera Pareja",p:95000,cat:"pijamas",prov:"l2",cid:"LUN-0003",img:"img/p/94938f0986c047dc.webp",imgs:["img/p/7aed167580f5685b.webp"],var:{"Estampado":["Batman","Star Wars"]},sku:"HOM-002"},
@@ -32,7 +32,6 @@ const CATALOGO_LUNARIA=[
 {id:"m23",n:"Trio Oversize Dama",p:44000,cat:"pantalones",prov:"l2",cid:"LUN-0023",img:"img/p/baf4d5bc87a0cb37.webp",imgs:["img/p/f98c2d1dff479f46.webp","img/p/875264d335520fe1.webp","img/p/29a737afb9d849b4.webp"],var:{"Estampado":["Pochaco","Capibara Naranja","Cinamorrol","Burbuja"]},sku:"TRI-005"},
 {id:"m25",n:"Levantadora Trio",p:44000,cat:"interior",prov:"l2",cid:"LUN-0025",img:"img/p/80248000a163b450.webp",imgs:["img/p/3b78c7bfc5e6fb47.webp","img/p/db8dedb7f251a012.webp","img/p/4ab170f10c24c14f.webp"],var:{"Estampado":["Vaquita","Oso Dormilon","Pochaco","Avocado Fucsia","Gata Marie"]},sku:"LEV-003"},
 {id:"m26",n:"Pantalon Camisa Hombre",p:41000,cat:"pantalones",prov:"l2",cid:"LUN-0026",img:"img/p/1e2dffb547ca60f2.webp",imgs:["img/p/18009dce5b7bbba0.webp","img/p/e5ff0c70c4c2d75b.webp","img/p/60309dedf0e88ab1.webp"],var:{"Estampado":["Vegueta","Picapiedras","Padrino Magico","Messy","Marvel"]},sku:"PCH-003"},
-{id:"m85",n:"Enterizo Halloween",p:40000,cat:"navidad",prov:"l2",cid:"LUN-0059",img:"img/p/d3b29bbd169b6d9b.webp",imgs:["img/p/709464b736cc2eaf.webp","img/p/94fbb988c4ae5a76.webp","img/p/3ba177f4c6c9ed83.webp"],var:{"Estampado":["Spiderman Negro","Spiderman","Capitan America","Esqueleto","Depool","Mujer Maravilla","Esqueleto Calabaza","los Increibles"]}},
 {id:"m27",n:"Chaqueta Antifluido",p:40000,cat:"conjuntos",prov:"l2",cid:"LUN-0027",img:"img/p/dd1611382053af61.webp",imgs:["img/p/66ad7752029ffe9b.webp"],var:{"Estampado":["Totto","Winne Pooh"]}},
 {id:"m28",n:"Short Camisera Dama",p:40000,cat:"shorts",prov:"l2",cid:"LUN-0028",img:"img/p/ca62bb5b4dd8db84.webp",imgs:["img/p/1977b9c7f2f62a10.webp","img/p/be9fed657f6e0730.webp"],var:{"Estampado":["Oveja Nube","Star Wars","Simsomps"]},sku:"PAD-004"},
 {id:"m29",n:"Pantalon Coqueta Tanga",p:39000,cat:"pantalones",prov:"l2",cid:"LUN-0029",img:"img/p/c0e5abcb28e8d7aa.webp",imgs:["img/p/77be78413a13d9f2.webp","img/p/4ff2ebacb48331bf.webp","img/p/68e094651bddfa30.webp"],var:{"Estampado":["Piolin","Gato Rosa","My Meloddy","Osa Corazones","Avocado"]}},
@@ -73,7 +72,7 @@ const CATALOGO_LUNARIA=[
 {id:"m56",n:"Short Tira Plus",p:30000,cat:"shorts",prov:"l2",cid:"LUN-0056",img:"img/p/8eecaa8cb940c7fe.webp",imgs:["img/p/124c61b0a3270fc9.webp","img/p/037f43f0493e22d5.webp"],var:{"Estampado":["Princesa Mario","Dino Bear","Gato Fresa"]},sku:"STP-002"},
 {id:"m61",n:"Batola Sencilla Plus",p:30000,cat:"enterizos",prov:"l2",cid:"LUN-0061",img:"img/p/5e13f30d6b216318.webp",imgs:["img/p/e951c05723cf8967.webp","img/p/cb1ae1918aa01438.webp","img/p/fc9dac964e5b3134.webp"],sku:"BP013"},
 {id:"m62",n:"Batola Tanga",p:28500,cat:"enterizos",prov:"l2",cid:"LUN-0062",img:"img/p/3df87da14f134584.webp",imgs:["img/p/a7673c5b78a8aaf7.webp","img/p/fee2c78efd1ad297.webp","img/p/ae3f1d8c8aa20744.webp"],var:{"Estampado":["My Meloddy","Mickey","Stich"]},sku:"BAT-003"},
-{id:"m86",n:"Body de Halloween",p:28000,cat:"navidad",prov:"l2",cid:"LUN-0102",img:"img/p/4f7d713857f7f7ff.webp",imgs:["img/p/8b790f80998f3209.webp","img/p/0324c41885e8b282.webp","img/p/f8ff6a11ac9b8940.webp"]},
+{id:"m86",n:"Body de Halloween",p:28000,cat:"navidad",prov:"l2",cid:"LUN-0102",img:"img/p/8b790f80998f3209.webp",imgs:["img/p/7f652287c94b8693.webp","img/p/5c971325d3a262b7.webp","img/p/bbb19ab013b70c3e.webp"]},
 {id:"m82",n:"Short Lolita Navidad",p:28000,cat:"navidad",prov:"l2",cid:"LUN-1823",img:"img/p/c78d47429916c71c.webp"},
 {id:"m66",n:"Juanita 4 Piezas",p:28000,cat:"interior",prov:"l2",cid:"LUN-0066",img:"img/p/024fe3329d0f80c8.webp",imgs:["img/p/bb8e3f176c71fde8.webp","img/p/083326de194edab2.webp","img/p/fa0a7a65689a1d9f.webp"],var:{"Estampado":["Stich Morado","Koala","Oso Lotso","Minnie","Capibara Cafe","Vaquita Negra","Mickey Negro","Avocado"]}},
 {id:"m63",n:"Short Camisa Dama",p:28000,cat:"shorts",prov:"l2",cid:"LUN-0063",img:"img/p/7a8d1840dd7755a1.webp",imgs:["img/p/432331cbfdb81eb1.webp","img/p/b0fbb4c2f5d7b638.webp"],var:{"Estampado":["Bob Esponja","Mickey","Avocado"]}},
@@ -88,7 +87,7 @@ const CATALOGO_LUNARIA=[
 {id:"m72",n:"Short Camisa",p:27000,cat:"shorts",prov:"l2",cid:"LUN-0072",img:"img/p/73c786275fa69a6d.webp",imgs:["img/p/c8fa403bcfd63dbe.webp","img/p/40f9747450391923.webp","img/p/ce5fc2c15ff08135.webp"],var:{"Estampado":["Oso Lila","Pollito","Vaquita","Gatico Flor","Hello Kitty","Cerdito"]},sku:"SCD1250"},
 {id:"m69",n:"Short Juanita Plus",p:27000,cat:"shorts",prov:"l2",cid:"LUN-0069",img:"img/p/fa46260a1d6770a1.webp",imgs:["img/p/8003d489104caef0.webp","img/p/69ea345a94157166.webp","img/p/43272e5e0933dd3f.webp"],var:{"Estampado":["Burbuja","My Meloddi","Deisy","Oso","Piolin","Jirafa"]},sku:"JSP-008"},
 {id:"m76",n:"Short Tira",p:25000,cat:"shorts",prov:"l2",cid:"LUN-0076",img:"img/p/c91c9cc34dd79ebd.webp",imgs:["img/p/80791ad568ecfb66.webp","img/p/df48ef96c61d5467.webp","img/p/2e3bc8408bdc43a4.webp"],var:{"Estampado":["Oso Lotso","Mickey","Hello Kitty","Tigers","Pinguinos","Avocado","Cerdito","Capibara"]},sku:"STU-001"},
-{id:"m74",n:"Batola Niña",p:25000,cat:"ninos",prov:"l2",cid:"LUN-0074",img:"img/p/8eadfc4b3ccf9a13.webp",imgs:["img/p/1cf2aeb5db26af32.webp","img/p/710924cde1981985.webp","img/p/1c3e5abbb2e10335.webp"],sku:"BN102"},
+{id:"m74",n:"Batola Niña",p:25000,cat:"ninos",prov:"l2",cid:"LUN-0074",img:"img/p/8eadfc4b3ccf9a13.webp",imgs:["img/p/1cf2aeb5db26af32.webp","img/p/710924cde1981985.webp","img/p/1c3e5abbb2e10335.webp"],var:{"Talla":["2/4","6/8","10/12","14/16"],"Estampado":["Cinamorrol","Cerdito","Avocado","Stich","Blanca Nieves","Bob Esponja","Capibara","Guerreras Kpop"]},sku:"BN102"},
 {id:"m75",n:"Short Tira Mundialista",p:25000,cat:"shorts",prov:"l2",cid:"LUN-0075",img:"img/p/6d28a9d956fdc4df.webp",imgs:["img/p/c643c6a354e04369.webp","img/p/0eb879379a46d133.webp","img/p/376d2d92a7587900.webp"],var:{"Talla":["Única","Plus","Oversize"],"Estampado":["Brazil 2","Brazil","Colombia 2","Colombia","Francia"]},sku:"SHD-001"},
 {id:"m77",n:"Batola Sencilla",p:25000,cat:"enterizos",prov:"l2",cid:"LUN-0077",img:"img/p/c413c3179fcda2e7.webp",imgs:["img/p/66520696f07de1ba.webp","img/p/4ff8e2cb8fe7f059.webp","img/p/900e3cd7d8ff3644.webp"],var:{"Estampado":["Bob Esponja","Capibara Flor","Labubu","Gata Marie Azul","Lilo y Stich"]},sku:"BT-001"},
 {id:"m84",n:"Juanita Sexy Navidad",p:24000,cat:"navidad",prov:"l2",cid:"LUN-1825",img:"img/p/91a4817c6ae271c6.webp",imgs:["img/p/adab59ff55e5dbe7.webp"],var:{"Estampado":["Santa","Santa Trineo"]}},
