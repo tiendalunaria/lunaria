@@ -238,8 +238,19 @@ def curar_moda_majestic(items):
         if not isinstance(pf, dict):
             return []
         pt = pf.get("precios_tallas") or {}
-        raw_des = str(pf.get("opciones_deshabilitadas") or "").lower()
-        tallas_nino = sorted([t for t in pt if "/" in str(t)])
+        # opciones_deshabilitadas: llegaba como string y desde oct-2026 como
+        # lista JSON; se normaliza a un solo texto en minusculas.
+        des = pf.get("opciones_deshabilitadas")
+        raw_des = (" ".join(str(v) for v in des) if isinstance(des, (list, tuple)) else str(des or "")).lower()
+        # tallas de nino: las entradas de precios_tallas que NO son de adulto
+        # ("Dama Unica", "Caballero Unica", "2XL Unisex"...). El proveedor
+        # etiqueta las tallas de nino como "2/4".."14/16" y (oct-2026) "18".
+        def _orden_talla(t):
+            m = re.match(r"\s*(\d+)", str(t))
+            return (int(m.group(1)) if m else 999, str(t))
+        tallas_nino = sorted([t for t in pt
+                              if not any(a in str(t).lower() for a in ("dama", "caballero", "2xl", "unisex", "plus"))],
+                             key=_orden_talla)
         precio_nino = 0
         for t in tallas_nino:
             try:
@@ -279,16 +290,25 @@ def curar_moda_majestic(items):
                 out.append(d)
         return out
 
-    # TODOS los validos (sin tope por categoria); las pijamas de familia
-    # (precio placeholder) entran expandidas por prenda con su precio real.
+    # TODOS los validos (sin tope por categoria). Las pijamas de familia se
+    # PUBLICAN SIEMPRE expandidas por prenda con el precio real de cada una
+    # (README 2.3): el proveedor las publico con precio placeholder y desde
+    # oct-2026 tambien con precio real en el item padre (36k/59k); en ambos
+    # esquemas el padre generico no sale: el precio correcto es el de cada
+    # prenda. Excepcion: "PIJAMA NAVIDEÑA DE PAREJA" queda como conjunto de
+    # 2 prendas (kit de pareja con su propio precio).
     elegidos = []
     for x in items:
         if x.get("oculto"):
             continue
+        es_fam = (x.get("es_producto_familiar") and x.get("imagen_url") and (x.get("precios_familia") or {}))
+        if es_fam and nombre_limpio(x.get("nombre")).upper().strip() in NOMBRES_FAMILIAR:
+            elegidos.extend(prendas_familiares(x))
+            continue
         c = candidato(x)
         if c:
             elegidos.append(con_datos(x))
-        elif x.get("es_producto_familiar") and x.get("imagen_url") and (x.get("precios_familia") or {}):
+        elif es_fam:
             elegidos.extend(prendas_familiares(x))
     elegidos = [p for p in elegidos if p and len(p.get("nombre") or "") >= 6]
     elegidos.sort(key=lambda x: -x["precio"])
