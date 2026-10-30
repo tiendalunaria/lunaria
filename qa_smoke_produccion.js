@@ -116,7 +116,9 @@ const vivo = async (u) => { try { const r = await pedir(u, { method: "HEAD" }); 
     if (r.ok) {
       const runs = (await r.json()).workflow_runs || [];
       const last = runs.find(x => x.name === "pages build and deployment");
-      check(!!last && (last.conclusion === "success" || last.status === "in_progress"), "6.1",
+      /* queued/in_progress valen: el smoke puede correr junto al deploy
+         (tras cada push ambos arrancan casi a la vez); solo un failure alarma. */
+      check(!!last && (last.conclusion === "success" || ["queued", "in_progress"].includes(last.status)), "6.1",
         "ultimo deploy de Pages " + (last ? last.conclusion || last.status : "n/d"), last && last.created_at);
     } else check(true, "6.1", "deploy Pages no verificado (API " + r.status + ")");
   } catch (e) { check(true, "6.1", "deploy Pages no verificado (sin red a la API)"); }
