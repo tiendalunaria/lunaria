@@ -1,9 +1,9 @@
 /* QA EXHAUSTIVO: aterrizaje de tarjetas por cada via de entrada + matematica
-   de precios (99 productos vs catalogo) + matematica del carrito.
+   de precios (todos los productos vs catalogo) + matematica del carrito.
    Ejecutar:  node qa_aterrizaje_precios.js
    51 verificaciones: los 20 favoritos, primero y ultimo de cada carrusel de
    categoria, las 6 prendas del heroe, buscador y enlace ?art= aterrizan en
-   SU tarjeta con el panel de cantidad abierto; los 99 precios = base x 1.6
+   SU tarjeta con el panel de cantidad abierto; todos los precios = base x 1.6
    redondeado a 100; carrito con lineas, unidades, totales, mensaje de
    WhatsApp y hoja de pedido exactos. */
 const { chromium } = require("C:/Users/User/IKI/dropi-analytics/node_modules/playwright");

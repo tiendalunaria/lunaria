@@ -38,13 +38,49 @@ const vivo = async (u) => { try { const r = await pedir(u, { method: "HEAD" }); 
   check(cat.st === 200, "2.1", "catalogo.js HTTP 200", cat.st);
   const ps = [...cat.t.matchAll(/\{id:"([a-z]+)(\d+)",n:"((?:[^"\\]|\\.)*)",p:(\d+),cat:"([\w-]+)".*?cid:"LUN-(\d+)"/g)]
     .map(m => ({ id: m[1] + m[2], n: m[3], p: +m[4], cat: m[5], cid: "LUN-" + m[6], img: (cat.t.slice(m.index, m.index + 600).match(/img:"([^"]+)"/) || [])[1] }));
-  check(ps.length >= 95, "2.2", "catalogo con >=95 productos visibles", ps.length);
+
+  /* 2-bis. Piso dinamico: el inventario del proveedor fluctua (99→89→88 en
+     una semana) y un umbral fijo alarma en cada bajada normal. Se baja el
+     piso del proveedor EN VIVO (mismas casillas que el sync: precio
+     18k-110k, con imagen, visible, sin nombre generico ni copia) y el
+     catalogo publicado debe conservar >=90% de ese total. Si el proveedor
+     no responde, piso fijo de emergencia (mitad del usual). */
+  const SB = "https://dowbsbxvxjzjjhyqmyfr.supabase.co/rest/v1/productos";
+  const SBKEY = "sb_publishable_-6hv7O7DhudWC7NAW8izOw_PAc8hPre";
+  const proveedorElegibles = async () => {
+    try {
+      const HDR = { apikey: SBKEY, Authorization: "Bearer " + SBKEY };
+      let out = [], desde = 0;
+      for (;;) {
+        const r = await fetch(SB + "?select=precio,imagen_url,nombre,oculto&tenant_id=eq.sublimados_majestic&order=created_at.desc&limit=1000&offset=" + desde, { headers: HDR });
+        if (!r.ok) break;
+        const d = await r.json();
+        if (!Array.isArray(d) || !d.length) break;
+        out = out.concat(d);
+        if (d.length < 1000) break;
+        desde += 1000;
+      }
+      if (!out.length) return null;
+      return out.filter(p => !p.oculto && p.imagen_url && p.precio >= 18000 && p.precio <= 110000
+        && /\S/.test((p.nombre || "")) && !/\(Copia\)/.test(p.nombre)).length;
+    } catch (e) { return null; }
+  };
+  const prov = await proveedorElegibles();
+  const piso = prov === null ? 60 : Math.max(Math.floor(prov * 0.9), 40);
+  check(ps.length >= piso, "2.2", "catalogo >=90% del elegible del proveedor (piso " + piso
+    + (prov === null ? ", proveedor n/d" : ", proveedor " + prov) + ")", ps.length);
   check(ps.every(x => x.p >= 10000), "2.3", "sin precios placeholder (<$10.000, familias sin expandir)", ps.filter(x => x.p < 10000).slice(0, 3).map(x => x.id + ":" + x.p));
   check(ps.every(x => x.p <= 200000), "2.4", "sin precios fuera de rango (> $200.000)", ps.filter(x => x.p > 200000).slice(0, 3).map(x => x.id + ":" + x.p));
   check(ps.every(x => /^LUN-\d{4}$/.test(x.cid)), "2.5", "todos con codigo LUN-XXXX");
   const conImg = ps.filter(x => x.img);
   check(conImg.length >= ps.length * 0.95, "2.6", ">=95% con imagen propia", conImg.length + "/" + ps.length);
-  check(!/https?:\/\/(?!tiendalunaria)/.test(cat.t.replace(/https?:\/\/tiendalunaria[^"']*/g, "")) || !/https?:\/\/(?!tiendalunaria\.github\.io)[^"']*\.(jpg|png|webp)/i.test(cat.t), "2.7", "sin imagenes de dominios ajenos");
+
+  /* 2.7 Imagenes 100% rehospedadas: ninguna URL de imagen de un dominio
+     ajeno al de la tienda (la cadena de respaldo de la tienda cubre rotas,
+     pero el rehost debe haber absorbido TODO el catalogo). */
+  const extranas = [...new Set(((cat.t.match(/https?:\/\/(?!tiendalunaria\.github\.io)[^\s"',]+/g) || [])
+    .filter(u => /\.(jpe?g|png|webp|gif)(\?|$)/i.test(u))))];
+  check(extranas.length === 0, "2.7", "sin imagenes de dominios ajenos", extranas.slice(0, 3));
 
   /* 3. Muestra de imagenes (20 aleatorias) */
   const muestra = conImg.sort(() => Math.random() - 0.5).slice(0, 20);

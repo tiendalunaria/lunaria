@@ -416,7 +416,7 @@ por prenda y estampados como chips.
 | Archivo / carpeta | Rol |
 |---|---|
 | `index.html` | Tienda completa (HTML + CSS + JS en un archivo). Tokens LUNARIA, tipografía Cormorant Garamond + Montserrat |
-| `catalogo.js` | Catálogo activo (99 productos de la línea de pijamas). Lo genera el cron: no se edita a mano |
+| `catalogo.js` | Catálogo activo (~98–101 productos de la línea de pijamas, fluctúa con el proveedor). Lo genera el cron: no se edita a mano |
 | `data/configuracion.js` | Configuración publicada desde el panel ("Publicar para TODOS"); la mantiene el panel vía API de GitHub |
 | `legal.html` | 8 políticas con anclas; absorbe la configuración publicada |
 | `scripts/sync_catalogos.py` | Descarga el proveedor de pijamas (Sublimados Majestic), normaliza, cura, clasifica y escribe `catalogo.js` y el Excel |

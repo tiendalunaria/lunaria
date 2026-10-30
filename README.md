@@ -22,7 +22,7 @@ y códigos de producto `LUN-XXXX` (ver `LUNARIA_Brief_Branding.md`).
 | Archivo / carpeta | Rol |
 |---|---|
 | `index.html` | Tienda completa (HTML + CSS + JS en un archivo). Todo el comportamiento vive aquí |
-| `catalogo.js` | Catálogo activo (99 productos de pijamas). **Lo genera el cron**: no se edita a mano |
+| `catalogo.js` | Catálogo activo (~98–101 productos de pijamas; el total fluctúa con el inventario del proveedor). **Lo genera el cron**: no se edita a mano |
 | `data/configuracion.js` | Configuración publicada desde el panel ("Publicar para TODOS"). La mantiene el panel vía API de GitHub: nadie la edita a mano |
 | `legal.html` | 8 políticas con anclas; absorbe la configuración publicada (razón social, NIT, contacto) |
 | `scripts/sync_catalogos.py` | Descarga el proveedor de pijamas, normaliza, cura, clasifica, escribe `catalogo.js` y el Excel |
@@ -81,20 +81,24 @@ shorts/bermudas > juanitas
 | Niños y niñas | 8 |
 | Navidad y Halloween | 17 |
 
-**99 productos visibles.**
+**~98–101 productos visibles** (el inventario del proveedor fluctúa: 99→89→88→98 durante oct-2026; conteo por categoría de ejemplo del 22-oct). El smoke L4 no usa un conteo fijo: valida el catálogo contra un **piso dinámico** (≥90% del elegible del proveedor en vivo — ver `qa_smoke_produccion.js`).
 
 ### 2.3 Pijamas de familia: precio real por prenda
 
-Majestic publica las pijamas de familia con precio **placeholder** ($3),
-pero la tarjeta trae `precios_familia` con el precio real **por prenda y
-talla** (dama, dama plus, caballero, 2XL unisex, niño 2/4–14/16). El sync
-las expande en un producto por prenda:
+Majestic publica las pijamas de familia con precio placeholder ($3) y
+desde oct-2026 a veces con **precio real en el ítem padre** ($36k/$59k);
+en ambos esquemas la tarjeta trae `precios_familia` con el precio real
+**por prenda y talla** (dama, dama plus, caballero, 2XL unisex, niño
+2/4–18). El sync las expande en un producto por prenda — el padre
+genérico no se publica: su precio único es incorrecto para cada prenda:
+
 
 - Nombre: `Pijama Familiar Navideña · Dama` (3 familias: de Personajes, Navideña y Grinch).
-- **Tallas como chips**: niño con 2/4, 6/8, 10/12, 14/16; dama/caballero con Única/Plus/2XL.
+- **Tallas como chips**: niño con 2/4, 6/8, 10/12, 14/16 y 18; dama/caballero con Única/Plus/2XL.
 - **Estampados de familia como chips**: Grinch, Reno, Santa y Mickey, Simpsons, Stitch, Avengers… (máx. 8).
-- Se respetan las **opciones deshabilitadas** de cada tarjeta (match exacto por etiqueta).
+- Se respetan las **opciones deshabilitadas** de cada tarjeta (match exacto por etiqueta; el proveedor las manda como string o como lista JSON).
 - Piezas de niño también quedan en "Niños y niñas".
+- **Excepción**: `Pijama Navideña de Pareja` se publica como conjunto de 2 prendas (kit con su propio precio de pareja), no se expande.
 
 ### 2.4 Nombres limpios y IDs permanentes (LUN-XXXX)
 

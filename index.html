@@ -2228,7 +2228,7 @@ function searchProducts(){
 function hideSearch(){$("searchResults").style.display="none";}
 function scrollToSection(id){
   const s=$(id);if(!s)return;
-  /* El grid pagina al hacer scroll (99 productos en cargas de 12) y el
+  /* El grid pagina al hacer scroll (~98-101 productos en cargas de 12) y el
      destino SE MOVIA mientras cargaba: el FAQ se corria ~1.500px y el
      scroll aterrizaba donde la seccion 'estaba'. Al navegar por secciones
      se carga TODO el catalogo de una vez: el objetivo queda fijo. Las

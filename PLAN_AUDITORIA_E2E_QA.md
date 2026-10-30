@@ -82,7 +82,7 @@ C0–C6, héroe/favoritos D0–D6…). Complementos NUEVOS:
 ### L4 — Producción (smoke después de cada deploy + 1 vez/día)
 Contra https://tiendalunaria.github.io/lunaria/ (solo lectura, sin comprar):
 - [ ] HTTP 200 en `/`, `/catalogo.js`, `/data/configuracion.js`, `/legal.html` y los 7 activos de marca.
-- [ ] `catalogo.js` parsea y tiene ≥ 95 productos visibles; muestra de 10 precios correctos.
+- [ ] `catalogo.js` parsea y conserva ≥ 90% del inventario elegible del proveedor (piso dinámico en vivo; el total fluctúa 88–101). Muestra de 10 precios correctos.
 - [ ] Título y meta `og:` con el eslogan oficial; favicon carga (marca nueva).
 - [ ] 20 imágenes de producto aleatorias: 0 rotas (HTTP 200).
 - [ ] QR de la tarjeta apunta al dominio correcto.
