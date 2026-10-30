@@ -45,7 +45,7 @@ Verificaciones:
 - [ ] Total de productos ≥ 90% del vigente (el guarda-red del script aborta < 50%; la auditoría es más estricta a propósito).
 - [ ] IDs `mNN` y códigos `LUN-XXXX` de los 20 favoritos + 6 del héroe SIN CAMBIOS (diff del `catalogo.js` anterior).
 - [ ] Ningún número `LUN-` reutilizado: nuevos códigos no existen en el histórico del repo.
-- [ ] Precios: `venta == ceil(base×1.6 /1000)×1000` para los 99 (fuera de temporada).
+- [ ] Precios: `venta == ceil(base×1.6 /1000)×1000` para todo el catálogo (fuera de temporada).
 - [ ] Sin precios placeholder ($3) en el catálogo final; familias expandidas con precio real por prenda.
 - [ ] Excel regenerado: cabecera chocolate `#4B4141`, hojas "Catálogo" y "Resumen", fecha de extracción de hoy.
 - [ ] Imágenes: toda `img/p/*.webp` referenciada existe; 0 URLs externas en `catalogo.js`.
@@ -54,7 +54,7 @@ Verificaciones:
 ### L2 — Tienda E2E local (cada cambio funcional de `index.html`)
 Suite existente: `node qa_aterrizaje_precios.js` (ajustar rutas del checkout local).
 Cubre: 20 favoritos, carruseles por categoría, héroe, buscador (sin tildes/ñ,
-`LUN-XXXX`, SKU), `?art=` de alistamiento, precios de los 99, matemática de
+`LUN-XXXX`, SKU), `?art=` de alistamiento, precios de todo el catálogo, matemática de
 carrito, mensaje WhatsApp con total exacto, hoja de pedido PNG.
 Complementos NUEVOS (a incorporar a la suite):
 - [ ] **Checkout por fases completo**: pedido → datos → entrega → pago → notas;
@@ -81,7 +81,7 @@ C0–C6, héroe/favoritos D0–D6…). Complementos NUEVOS:
 
 ### L4 — Producción (smoke después de cada deploy + 1 vez/día)
 Contra https://tiendalunaria.github.io/lunaria/ (solo lectura, sin comprar):
-- [ ] HTTP 200 en `/`, `/catalogo.js`, `/data/configuracion.js`, `/legal.html` y los 7 activos de marca.
+- [ ] HTTP 200 en `/`, `/catalogo.js`, `/data/configuracion.js`, `/legal.html` y los 10 activos de marca.
 - [ ] `catalogo.js` parsea y conserva ≥ 90% del inventario elegible del proveedor (piso dinámico en vivo; el total fluctúa 88–101). Muestra de 10 precios correctos.
 - [ ] Título y meta `og:` con el eslogan oficial; favicon carga (marca nueva).
 - [ ] 20 imágenes de producto aleatorias: 0 rotas (HTTP 200).
@@ -120,7 +120,7 @@ generado, no enviándolo.
 | Sev | Definición | Ejemplo | Acción |
 |---|---|---|---|
 | S1 | Cobra mal o pierde pedidos | total del carrito errado; WhatsApp sin total; precio ≠ fórmula | Bloquea deploy |
-| S2 | Catálogo/tienda rota para el usuario | catálogo < 95; imagen placeholder masiva; checkout no avanza | Bloquea deploy |
+| S2 | Catálogo/tienda rota para el usuario | catálogo bajo el piso dinámico (<90% del elegible del proveedor); imagen placeholder masiva; checkout no avanza | Bloquea deploy |
 | S3 | Degradación visible sin pérdida | badge sin rebote; lightbox sin contador | Fix en 7 días |
 | S4 | Cosmético | espaciado, tipografía menor | Backlog |
 
@@ -148,7 +148,7 @@ smoke L4 verde, y reporte firmado con fecha.
 ```
 Fecha / corrida:            Ejecutor:
 L0 estático:        PASS/FAIL (detalle)
-L1 pipeline:        productos ANTES=99 DESPUÉS=nn | IDs héroe/favoritos estables: SÍ/NO
+L1 pipeline:        productos ANTES=nn DESPUÉS=nn | piso dinámico ≥90% del proveedor: SÍ/NO | IDs héroe/favoritos estables: SÍ/NO
 L2 aterrizajes:     nn/nn PASS  | fallos:
 L3 panel:           nn/nn PASS  | fallos:
 L4 producción:      HTTP/precios/imágenes | deploy: min

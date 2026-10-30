@@ -25,7 +25,7 @@ y códigos de producto `LUN-XXXX` (ver `LUNARIA_Brief_Branding.md`).
 | `catalogo.js` | Catálogo activo (~98–101 productos de pijamas; el total fluctúa con el inventario del proveedor). **Lo genera el cron**: no se edita a mano |
 | `data/configuracion.js` | Configuración publicada desde el panel ("Publicar para TODOS"). La mantiene el panel vía API de GitHub: nadie la edita a mano |
 | `legal.html` | 8 políticas con anclas; absorbe la configuración publicada (razón social, NIT, contacto) |
-| `scripts/sync_catalogos.py` | Descarga el proveedor de pijamas, normaliza, cura, clasifica, escribe `catalogo.js` y el Excel |
+| `scripts/sync_catalogos.py` | Descarga el proveedor de pijamas, normaliza, cura, clasifica, escribe `catalogo.js` y el Excel. **30-oct-2026**: publica a las familias SIEMPRE expandidas por prenda con precio real (el proveedor cambió a precio real en el ítem padre; el tipo de `opciones_deshabilitadas` varía string/lista) |
 | `.github/workflows/sync-catalogos.yml` | Cron cada 6 horas (+ manual): sincroniza, commitea y publica (con `pull --rebase` para absorber lo publicado por el panel) |
 | `img/p/` | Imágenes rehospedadas de la tienda (miniaturas webp, hash del URL) |
 | `generar_enlace_config.py` | **Local** (en `.gitignore`): arma el enlace de configuración de un solo toque (token) |
@@ -39,8 +39,9 @@ y códigos de producto `LUN-XXXX` (ver `LUNARIA_Brief_Branding.md`).
 | `banner_pijamas_1600x600.png` | Banner de categoría (fallback de burbujas) |
 | ~~`index (5).html`, `index_jugueteria.html`~~ | Legado de la clonación de IKI: **eliminados el 22-oct-2026** — quedaban publicados como URLs vivas con la marca vieja (verificado: HTTP 200 en producción), confundiendo la marca y arriesgando indexación. Recuperables desde el historial (`git checkout a41f1f0 -- <archivo>`) |
 | `qa_admin_e2e.js`, `qa_aterrizaje_precios.js` | Suites E2E locales (ajustar rutas al checkout local antes de correr) |
-| `sitemap.xml`, `robots.txt` | SEO: envío a Google Search Console; canonical en index/legal. Al comprar el dominio oficial: actualizar URLs (GitHub Pages redirige 301 automático) |
-| `qa_smoke_produccion.js` + `.github/workflows/qa-smoke.yml` | Smoke L4 diario (12:00 UTC) contra la tienda publicada: abre/cierra issue automático |
+| `sitemap.xml`, `robots.txt` | SEO: envío a Google Search Console; canonical en index/legal |
+| `CNAME` | Dominio oficial **www.pijamaslunaria.com** ya activo (GitHub Pages redirige 301 desde github.io). Pendiente al estabilizar: migrar canonical/sitemap/robots al dominio propio y revisar en Search Console |
+| `qa_smoke_produccion.js` + `.github/workflows/qa-smoke.yml` | Smoke L4 diario (12:00 UTC) contra la tienda publicada: abre/cierra issue automático. **30-oct-2026**: piso dinámico del catálogo (≥90% del elegible del proveedor en vivo), check real contra dominios ajenos y Node 22 en el workflow |
 
 ---
 
@@ -77,11 +78,11 @@ shorts/bermudas > juanitas
 | Pantalones y capris | 16 |
 | Shorts y bermudas | 15 |
 | Ropa interior y juanitas | 13 |
-| Enterizos y batolas | 7 |
 | Niños y niñas | 8 |
-| Navidad y Halloween | 17 |
+| Navidad y Halloween | 16 |
+| Enterizos y batolas | 7 |
 
-**~98–101 productos visibles** (el inventario del proveedor fluctúa: 99→89→88→98 durante oct-2026; conteo por categoría de ejemplo del 22-oct). El smoke L4 no usa un conteo fijo: valida el catálogo contra un **piso dinámico** (≥90% del elegible del proveedor en vivo — ver `qa_smoke_produccion.js`).
+**98 productos visibles** (conteo del 30-oct-2026; el inventario del proveedor fluctúa a diario: 99→89→88→98 durante oct-2026). El smoke L4 no usa un conteo fijo: valida el catálogo contra un **piso dinámico** (≥90% del elegible del proveedor en vivo — ver `qa_smoke_produccion.js`).
 
 ### 2.3 Pijamas de familia: precio real por prenda
 
