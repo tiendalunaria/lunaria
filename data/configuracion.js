@@ -2,12 +2,12 @@
 // (botón "Publicar para TODOS"). Se aplica a TODOS los visitantes de
 // https://tiendalunaria.github.io/lunaria/ — nadie necesita editar este archivo a mano.
 window.CONFIG_PUBLICADA = {
-  "version": 1793685307822,
+  "version": 1793685405276,
   "tienda": {
     "nombre": "LUNARIA",
     "logo": "logo_120.png",
     "whatsappPedidos": "573136594870",
-    "whatsappAtencion": "",
+    "whatsappAtencion": "573136594870",
     "razonSocial": "",
     "nit": "",
     "direccion": "",
