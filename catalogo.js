@@ -1,10 +1,10 @@
 // ======================================================================
 // catalogo.js de LUNARIA - generado automaticamente por scripts/sync_catalogos.py
-// (2026-11-04 12:49). NO editar a mano: el cron de GitHub Actions lo regenera.
+// (2026-11-04 18:46). NO editar a mano: el cron de GitHub Actions lo regenera.
 // Fuentes: inventario propio de la marca (gestión interna de LUNARIA)
 // ======================================================================
 const CATALOGO_LUNARIA=[
-/* moda: 98 productos */
+/* moda: 97 productos */
 {id:"m01",n:"Pantalon Corset con Correa",p:101000,cat:"conjuntos",prov:"l2",cid:"LUN-0001",img:"img/p/2619647c4a1fffa5.webp",imgs:["img/p/f6b01737672673ed.webp","img/p/2d4ced5a274ae322.webp"],var:{"Estampado":["Negro","Beiz","Blanco"]}},
 {id:"m02",n:"Conjunto Chaleco Manga Larga",p:99000,cat:"conjuntos",prov:"l2",cid:"LUN-0002",img:"img/p/726a805d74c7e431.webp",imgs:["img/p/0e17fd0384cda0bf.webp","img/p/fd06f769198c10cf.webp"],var:{"Estampado":["Blanco","Negro","Beige"]}},
 {id:"m03",n:"Pantalon Camisera Pareja",p:95000,cat:"pijamas",prov:"l2",cid:"LUN-0003",img:"img/p/94938f0986c047dc.webp",imgs:["img/p/7aed167580f5685b.webp"],var:{"Estampado":["Batman","Star Wars"]},sku:"HOM-002"},
@@ -52,7 +52,6 @@ const CATALOGO_LUNARIA=[
 {id:"m37",n:"Bermuda Hombre",p:38000,cat:"shorts",prov:"l2",cid:"LUN-0037",img:"img/p/6eb75c73a4a88209.webp",imgs:["img/p/7dcdb6a08c08fee7.webp"],var:{"Estampado":["Mickey","Stich"]},sku:"HOM-001"},
 {id:"m36",n:"Pantalon Lolita",p:38000,cat:"pantalones",prov:"l2",cid:"LUN-0036",img:"img/p/47f376208d4288ed.webp",imgs:["img/p/ea354bc06dbeb8ae.webp","img/p/2caebfef31375d21.webp","img/p/edfdb36af8218417.webp"],var:{"Estampado":["Donal y Deisy","Labubu Cafe","Vaquita Espacial","Mickey","Minnie Azul","Hello Kitty"]},sku:"TRI-004"},
 {id:"m39",n:"Set Tanga Transparente",p:37000,cat:"interior",prov:"l2",cid:"LUN-0039",img:"img/p/25993823247bc9be.webp",imgs:["img/p/2d534a014614354a.webp","img/p/41b1491d25295944.webp"],var:{"Talla":["S","M","L"],"Estampado":["Blanco","Negro","Rojo"]}},
-{id:"m40",n:"Capri Tiras Plus",p:37000,cat:"pantalones",prov:"l2",cid:"LUN-0040",img:"img/p/66c9db44cdab0c7c.webp",imgs:["img/p/d912d9640cb9f19d.webp","img/p/267770f8dd7420c0.webp"],var:{"Estampado":["Oveja Nuve","Oso","Deisy"]},sku:"CTP"},
 {id:"m94",n:"Pijama Familiar de Personajes · Dama",p:36000,cat:"pijamas",prov:"l2",cid:"LUN-0089",img:"img/p/0714c979ca03477c.webp",imgs:["img/p/8ab75090f459923d.webp","img/p/25635337ca761ed2.webp","img/p/86a615ced521b750.webp"],var:{"Estampado":["Familia Simpsons","Familia Stich","Familia Avengers","Familia Iroman","Familia Capitan America"],"Talla":["Única"]}},
 {id:"m95",n:"Pijama Familiar de Personajes · Niño",p:36000,cat:"ninos",prov:"l2",cid:"LUN-0090",img:"img/p/0714c979ca03477c.webp",imgs:["img/p/8ab75090f459923d.webp","img/p/25635337ca761ed2.webp","img/p/86a615ced521b750.webp"],var:{"Estampado":["Familia Simpsons","Familia Stich","Familia Avengers","Familia Iroman","Familia Capitan America"],"Talla":["2/4","6/8","10/12","14/16","18"]}},
 {id:"m96",n:"Pijama Familiar Navideña · Dama",p:36000,cat:"navidad",prov:"l2",cid:"LUN-0091",img:"img/p/bd860c27ee281a2f.webp",imgs:["img/p/8e4e053f3e0f84ef.webp","img/p/988818b238a77607.webp","img/p/33b62243ad03ee79.webp"],var:{"Estampado":["Reno Gorro","Grinch Asomado","Reno Chrismas","Mickey Santa Turqui","Santa Burrito","Santa Verde","Stich","Mickey"],"Talla":["Única"]}},
