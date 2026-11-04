@@ -1,6 +1,6 @@
 // ======================================================================
 // catalogo.js de LUNARIA - generado automaticamente por scripts/sync_catalogos.py
-// (2026-11-03 18:40). NO editar a mano: el cron de GitHub Actions lo regenera.
+// (2026-11-04 00:41). NO editar a mano: el cron de GitHub Actions lo regenera.
 // Fuentes: inventario propio de la marca (gestión interna de LUNARIA)
 // ======================================================================
 const CATALOGO_LUNARIA=[
@@ -74,7 +74,7 @@ const CATALOGO_LUNARIA=[
 {id:"m55",n:"Bluson Oversize",p:31000,cat:"conjuntos",prov:"l2",cid:"LUN-0055",img:"img/p/20630d58ee4f471a.webp",imgs:["img/p/584a5ccf2f1d0041.webp","img/p/fea4ac76cff8fa41.webp","img/p/ea102cbf7176b8ef.webp"],var:{"Estampado":["Gata Marie","Tigers","Mickey Rojo","Kitty","Aladdin","Mickey Molesto","Oso Lotso","Lola"]},sku:"BLU-002"},
 {id:"m81",n:"Trio Panda Navidad",p:30000,cat:"navidad",prov:"l2",cid:"LUN-1822",img:"img/p/90cebed105e6026c.webp",imgs:["img/p/ade7101982317996.webp","img/p/1c559ce0686bcff4.webp"],var:{"Estampado":["Sanat Trineo","Santa Caricatura","Santa Trineo"]}},
 {id:"m80",n:"Enterizo Tiras Navidad",p:30000,cat:"navidad",prov:"l2",cid:"LUN-1821",img:"img/p/8d0988a88ffd6b79.webp",imgs:["img/p/49708ae36a111878.webp"],var:{"Estampado":["Arbolito","Cuadros rojos"]}},
-{id:"m60",n:"Juanita Bolero Sublimada",p:30000,cat:"interior",prov:"l2",cid:"LUN-0060",img:"img/p/3ba13efd9af13413.webp",imgs:["img/p/2a1f45ad64a746de.webp","img/p/f87e8f1b00b1f66b.webp","img/p/b0b1157cd5129b93.webp"],var:{"Estampado":["Avocado Fucsia","Garfield","Deisy","Oso Panda"]}},
+{id:"m60",n:"Juanita Bolero Sublimada",p:30000,cat:"interior",prov:"l2",cid:"LUN-0060",img:"img/p/3ba13efd9af13413.webp",imgs:["img/p/2a1f45ad64a746de.webp","img/p/f87e8f1b00b1f66b.webp"],var:{"Estampado":["Avocado Fucsia","Garfield","Deisy"]}},
 {id:"m58",n:"Short Camisa Oversize Unicolor",p:30000,cat:"shorts",prov:"l2",cid:"LUN-0058",img:"img/p/2c804a7588490467.webp",imgs:["img/p/503f78c086f4cf1e.webp","img/p/9c5c3f5b4b1b48cb.webp","img/p/01e0ff01de49343a.webp"],var:{"Estampado":["Beiz","Rojo","Salmón","Amarillo","Fucsia","Negro","Azul","Rosado"]},sku:"SCO"},
 {id:"m61",n:"Batola Sencilla Plus",p:30000,cat:"enterizos",prov:"l2",cid:"LUN-0061",img:"img/p/5e13f30d6b216318.webp",imgs:["img/p/e951c05723cf8967.webp","img/p/cb1ae1918aa01438.webp","img/p/fc9dac964e5b3134.webp"],sku:"BP013"},
 {id:"m56",n:"Short Tira Plus",p:30000,cat:"shorts",prov:"l2",cid:"LUN-0056",img:"img/p/8eecaa8cb940c7fe.webp",imgs:["img/p/124c61b0a3270fc9.webp","img/p/037f43f0493e22d5.webp"],var:{"Estampado":["Princesa Mario","Dino Bear","Gato Fresa"]},sku:"STP-002"},
