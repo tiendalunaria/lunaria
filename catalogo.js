@@ -1,6 +1,6 @@
 // ======================================================================
 // catalogo.js de LUNARIA - generado automaticamente por scripts/sync_catalogos.py
-// (2026-11-05 12:53). NO editar a mano: el cron de GitHub Actions lo regenera.
+// (2026-11-05 18:43). NO editar a mano: el cron de GitHub Actions lo regenera.
 // Fuentes: inventario propio de la marca (gestión interna de LUNARIA)
 // ======================================================================
 const CATALOGO_LUNARIA=[
@@ -57,9 +57,9 @@ const CATALOGO_LUNARIA=[
 {id:"m95",n:"Pijama Familiar de Personajes · Niño",p:36000,cat:"ninos",prov:"l2",cid:"LUN-0090",img:"img/p/0714c979ca03477c.webp",imgs:["img/p/8ab75090f459923d.webp","img/p/25635337ca761ed2.webp","img/p/86a615ced521b750.webp"],var:{"Estampado":["Familia Simpsons","Familia Stich","Familia Avengers","Familia Iroman","Familia Capitan America"],"Talla":["2/4","6/8","10/12","14/16","18"]}},
 {id:"m96",n:"Pijama Familiar Navideña · Dama",p:36000,cat:"navidad",prov:"l2",cid:"LUN-0091",img:"img/p/bd860c27ee281a2f.webp",imgs:["img/p/8e4e053f3e0f84ef.webp","img/p/988818b238a77607.webp","img/p/33b62243ad03ee79.webp"],var:{"Estampado":["Reno Gorro","Grinch Asomado","Reno Chrismas","Mickey Santa Turqui","Santa Burrito","Santa Verde","Stich","Mickey"],"Talla":["Única"]}},
 {id:"m97",n:"Pijama Familiar Navideña · Niño",p:36000,cat:"navidad",prov:"l2",cid:"LUN-0092",img:"img/p/bd860c27ee281a2f.webp",imgs:["img/p/8e4e053f3e0f84ef.webp","img/p/988818b238a77607.webp","img/p/33b62243ad03ee79.webp"],var:{"Estampado":["Reno Gorro","Grinch Asomado","Reno Chrismas","Mickey Santa Turqui","Santa Burrito","Santa Verde","Stich","Mickey"],"Talla":["2/4","6/8","10/12","14/16","18"]}},
-{id:"m43",n:"Vestido Moschino",p:36000,cat:"conjuntos",prov:"l2",cid:"LUN-0043",img:"img/p/1bae28254d4bdc42.webp",imgs:["img/p/960646f8a06c2b4a.webp","img/p/069936c07fafc2ae.webp","img/p/de3d48adca2f9810.webp"],var:{"Estampado":["Galfier","Donald","Bob Esponja","Stich","Angelica","Hello Kitty"]},sku:"VES-001"},
 {id:"m42",n:"Bluson Bolsillo",p:36000,cat:"conjuntos",prov:"l2",cid:"LUN-0042",img:"img/p/6e84e9d7f625318f.webp",imgs:["img/p/2186b17d16d63ba2.webp","img/p/cfaaecc2eed6e081.webp"],var:{"Estampado":["Vellota","Bom Bom","Oso Cariñoso"]},sku:"BB-001"},
 {id:"m41",n:"Pantalon Camiseta",p:36000,cat:"pantalones",prov:"l2",cid:"LUN-0041",img:"img/p/2559efaf5f307f31.webp",imgs:["img/p/15f093204e4be36d.webp","img/p/517b995c465a6c5e.webp","img/p/68acefedeb795a3f.webp"],var:{"Estampado":["Carlitos","Cerdito","Chimuelo","Piolin","Vaquita","Koala","Pluto","Capibara Flor"]},sku:"PCD103"},
+{id:"m43",n:"Vestido Moschino",p:36000,cat:"conjuntos",prov:"l2",cid:"LUN-0043",img:"img/p/1bae28254d4bdc42.webp",imgs:["img/p/960646f8a06c2b4a.webp","img/p/069936c07fafc2ae.webp","img/p/de3d48adca2f9810.webp"],var:{"Estampado":["Galfier","Donald","Bob Esponja","Stich","Angelica","Hello Kitty"]},sku:"VES-001"},
 {id:"m44",n:"Pijama en Satin",p:34000,cat:"pijamas",prov:"l2",cid:"LUN-0044",img:"img/p/84edb7deacf64caa.webp",sku:"PS-0532"},
 {id:"m46",n:"Capri Camisa",p:34000,cat:"pantalones",prov:"l2",cid:"LUN-0046",img:"img/p/c99037fd8b7f302a.webp",imgs:["img/p/70268bb84b6ab5ae.webp","img/p/32fc5c53924a0d47.webp"],var:{"Estampado":["Vaquita","Avocado","Cerdito Morado"]},sku:"CAP-004"},
 {id:"m45",n:"Pantalon Tiras",p:34000,cat:"pantalones",prov:"l2",cid:"LUN-0045",img:"img/p/a2068959837dc9c7.webp",imgs:["img/p/ddb1cf5ab9740b42.webp","img/p/fd2f517b4f6ae53d.webp","img/p/f0639e795704f184.webp"],var:{"Estampado":["Kitty","Capibara","Labubu","Oso lottso","Pantera Rosa","Snoopy","Capibara Cafe","Jirafa Tierna"]},sku:"PAD-001"},
