@@ -1,10 +1,10 @@
 // ======================================================================
 // catalogo.js de LUNARIA - generado automaticamente por scripts/sync_catalogos.py
-// (2026-11-05 00:47). NO editar a mano: el cron de GitHub Actions lo regenera.
+// (2026-11-05 06:59). NO editar a mano: el cron de GitHub Actions lo regenera.
 // Fuentes: inventario propio de la marca (gestión interna de LUNARIA)
 // ======================================================================
 const CATALOGO_LUNARIA=[
-/* moda: 97 productos */
+/* moda: 98 productos */
 {id:"m01",n:"Pantalon Corset con Correa",p:101000,cat:"conjuntos",prov:"l2",cid:"LUN-0001",img:"img/p/2619647c4a1fffa5.webp",imgs:["img/p/f6b01737672673ed.webp","img/p/2d4ced5a274ae322.webp"],var:{"Estampado":["Negro","Beiz","Blanco"]}},
 {id:"m02",n:"Conjunto Chaleco Manga Larga",p:99000,cat:"conjuntos",prov:"l2",cid:"LUN-0002",img:"img/p/726a805d74c7e431.webp",imgs:["img/p/0e17fd0384cda0bf.webp","img/p/fd06f769198c10cf.webp"],var:{"Estampado":["Blanco","Negro","Beige"]}},
 {id:"m03",n:"Pantalon Camisera Pareja",p:95000,cat:"pijamas",prov:"l2",cid:"LUN-0003",img:"img/p/94938f0986c047dc.webp",imgs:["img/p/7aed167580f5685b.webp"],var:{"Estampado":["Batman","Star Wars"]},sku:"HOM-002"},
@@ -32,6 +32,7 @@ const CATALOGO_LUNARIA=[
 {id:"m24",n:"Short Camisera Plus",p:44000,cat:"shorts",prov:"l2",cid:"LUN-0024",img:"img/p/59c6a231d62c2388.webp",imgs:["img/p/c5d63bcbd0a6bc4e.webp","img/p/ebb94921a571951e.webp","img/p/de64e26dfccdba7f.webp"],var:{"Estampado":["Ojos","Minnie","Oso Panda","Stich"]},sku:"SCD"},
 {id:"m25",n:"Levantadora Trio",p:44000,cat:"interior",prov:"l2",cid:"LUN-0025",img:"img/p/80248000a163b450.webp",imgs:["img/p/3b78c7bfc5e6fb47.webp","img/p/db8dedb7f251a012.webp","img/p/4ab170f10c24c14f.webp"],var:{"Estampado":["Vaquita","Oso Dormilon","Pochaco","Avocado Fucsia","Gata Marie"]},sku:"LEV-003"},
 {id:"m23",n:"Trio Oversize Dama",p:44000,cat:"pantalones",prov:"l2",cid:"LUN-0023",img:"img/p/baf4d5bc87a0cb37.webp",imgs:["img/p/f98c2d1dff479f46.webp","img/p/875264d335520fe1.webp","img/p/29a737afb9d849b4.webp"],var:{"Estampado":["Pochaco","Capibara Naranja","Cinamorrol","Burbuja"]},sku:"TRI-005"},
+{id:"m40",n:"Pijama Familiar Grinch · Dama Plus",p:41000,cat:"navidad",prov:"l2",cid:"LUN-0040",img:"img/p/ca5335b432ef4b11.webp",imgs:["img/p/2c4a4011c9d6eb6f.webp","img/p/bb636d2210bc941d.webp"],var:{"Talla":["Plus"],"Estampado":["Grinch Enojado","Grich Enojado","Santa Verde"]}},
 {id:"m88",n:"Pijama Familiar de Personajes · Dama Plus",p:41000,cat:"pijamas",prov:"l2",cid:"LUN-0083",img:"img/p/0714c979ca03477c.webp",imgs:["img/p/8ab75090f459923d.webp","img/p/25635337ca761ed2.webp","img/p/86a615ced521b750.webp"],var:{"Estampado":["Familia Simpsons","Familia Stich","Familia Avengers","Familia Iroman","Familia Capitan America"],"Talla":["Plus"]}},
 {id:"m89",n:"Pijama Familiar de Personajes · Caballero",p:41000,cat:"pijamas",prov:"l2",cid:"LUN-0084",img:"img/p/0714c979ca03477c.webp",imgs:["img/p/8ab75090f459923d.webp","img/p/25635337ca761ed2.webp","img/p/86a615ced521b750.webp"],var:{"Estampado":["Familia Simpsons","Familia Stich","Familia Avengers","Familia Iroman","Familia Capitan America"],"Talla":["Única"]}},
 {id:"m90",n:"Pijama Familiar Navideña · Dama Plus",p:41000,cat:"navidad",prov:"l2",cid:"LUN-0085",img:"img/p/bd860c27ee281a2f.webp",imgs:["img/p/8e4e053f3e0f84ef.webp","img/p/988818b238a77607.webp","img/p/33b62243ad03ee79.webp"],var:{"Estampado":["Reno Gorro","Grinch Asomado","Reno Chrismas","Mickey Santa Turqui","Santa Burrito","Santa Verde","Stich","Mickey"],"Talla":["Plus"]}},
