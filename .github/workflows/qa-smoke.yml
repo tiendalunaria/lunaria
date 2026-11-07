@@ -20,6 +20,7 @@ concurrency:
 jobs:
   smoke:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -34,7 +35,13 @@ jobs:
         with:
           script: |
             const fs = require('fs');
-            const log = fs.readFileSync('smoke_resultado.txt', 'utf8').slice(-3000);
+            const ruta = 'smoke_resultado.txt';
+            /* Si el smoke murio ANTES de escribir el resultado (error de
+               arranque, checkout vacio), el issue igual sale con el enlace
+               al log en vez de reventar el propio paso y quedarse sin aviso. */
+            const log = fs.existsSync(ruta)
+              ? fs.readFileSync(ruta, 'utf8').slice(-3000)
+              : '(sin smoke_resultado.txt: el smoke fallo antes de escribirlo)';
             const {data: abiertas} = await github.rest.issues.listForRepo({
               ...context.repo, state: 'open', labels: 'qa-smoke', per_page: 1});
             const cuerpo = '### 🔴 Smoke L4 de producción falló\n'

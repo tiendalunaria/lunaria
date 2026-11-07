@@ -504,6 +504,18 @@ if __name__ == "__main__":
     print("== Descargando proveedor (pijamas) ==")
     majestic = descargar_majestic()
     print("  majestic:", len(majestic))
+    # Guarda-red de DESCARGA: catalogo.js ya aborta si la seleccion nueva
+    # cae bajo la mitad de la vigente, pero el Excel se escribia igual y
+    # el cron lo commiteaba VACIO con la corrida en verde (proveedor caido
+    # = repo con Excel sin filas). Ante una descarga nula o claramente
+    # parcial se aborta SIN escribir nada: la corrida falla, el workflow
+    # avisa con issue y lo publicado queda intacto.
+    if not majestic:
+        print("  ! Proveedor sin datos (caida o red): aborto sin escribir catalogo ni Excel.")
+        sys.exit(1)
+    if len(majestic) < 30:
+        print("  ! Proveedor con solo %d registros (descarga parcial): aborto sin escribir nada." % len(majestic))
+        sys.exit(1)
 
     print("== Curando seleccion de la tienda ==")
     moda = curar_moda_majestic(majestic)

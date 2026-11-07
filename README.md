@@ -25,8 +25,8 @@ y códigos de producto `LUN-XXXX` (ver `LUNARIA_Brief_Branding.md`).
 | `catalogo.js` | Catálogo activo (~98–101 productos de pijamas; el total fluctúa con el inventario del proveedor). **Lo genera el cron**: no se edita a mano |
 | `data/configuracion.js` | Configuración publicada desde el panel ("Publicar para TODOS"). La mantiene el panel vía API de GitHub: nadie la edita a mano |
 | `legal.html` | 8 políticas con anclas; absorbe la configuración publicada (razón social, NIT, contacto) |
-| `scripts/sync_catalogos.py` | Descarga el proveedor de pijamas, normaliza, cura, clasifica, escribe `catalogo.js` y el Excel. **30-oct-2026**: publica a las familias SIEMPRE expandidas por prenda con precio real (el proveedor cambió a precio real en el ítem padre; el tipo de `opciones_deshabilitadas` varía string/lista) |
-| `.github/workflows/sync-catalogos.yml` | Cron cada 6 horas (+ manual): sincroniza, commitea y publica (con `pull --rebase` para absorber lo publicado por el panel) |
+| `scripts/sync_catalogos.py` | Descarga el proveedor de pijamas, normaliza, cura, clasifica, escribe `catalogo.js` y el Excel. **30-oct-2026**: publica a las familias SIEMPRE expandidas por prenda con precio real (el proveedor cambió a precio real en el ítem padre; el tipo de `opciones_deshabilitadas` varía string/lista). Guarda-red de descarga: proveedor nulo o claramente parcial (<30 registros) aborta SIN escribir catálogo ni Excel |
+| `.github/workflows/sync-catalogos.yml` | Cron cada 6 horas (+ manual): sincroniza, valida el catálogo generado (`node --check`), commitea y publica (con `pull --rebase` para absorber lo publicado por el panel). Falla → issue automático `sync-catalogos` que se cierra solo al recuperarse |
 | `img/p/` | Imágenes rehospedadas de la tienda (miniaturas webp, hash del URL) |
 | `generar_enlace_config.py` | **Local** (en `.gitignore`): arma el enlace de configuración de un solo toque (token) |
 | `GitHub.txt` | **Local** (en `.gitignore`): donde vive el token de GitHub |
@@ -123,10 +123,13 @@ de la categoría.
 
 ### 2.6 Cron de GitHub Actions
 
-Cada 6 horas: checkout con historial completo → sync → `git add
+Cada 6 horas: checkout con historial completo → sync (si el proveedor
+no responde o la descarga viene parcial, el script ABORTA sin escribir
+nada: la corrida falla y avisa) → `node --check catalogo.js` → `git add
 catalogo.js *.xlsx img` → si hay cambios: commit `[skip ci]` →
 **`git pull --rebase`** (absorbe lo publicado por el panel vía API) →
-push.
+push. Si la corrida falla, abre/comenta un issue (`sync-catalogos`) y
+lo cierra solo cuando se recupera.
 
 ---
 

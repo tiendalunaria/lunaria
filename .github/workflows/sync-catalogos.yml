@@ -15,14 +15,19 @@ on:
 
 permissions:
   contents: write
+  issues: write # avisa con un issue si la sincronizacion falla
 
 concurrency:
   group: sync-catalogos
-  cancel-in-progress: true
+  # Un job que hace PUSH no se cancela a medias: si dos corridas se
+  # solapan, la segunda hace cola y termina en "Sin cambios". El
+  # timeout-minutes del job evita que una corrida colgada acumule fila.
+  cancel-in-progress: false
 
 jobs:
   sync:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
         with:
@@ -35,6 +40,11 @@ jobs:
         run: python -m pip install openpyxl pillow
       - name: Sincronizar catalogo
         run: python scripts/sync_catalogos.py
+      # Ultima barrera antes de publicar (plan de auditoria L0): un
+      # catalogo.js con sintaxis rota NO sale a produccion (tienda muerta
+      # = S2). Node viene preinstalado en el runner.
+      - name: Validar catalogo generado
+        run: node --check catalogo.js
       - name: Publicar cambios (si los hay)
         run: |
           git config user.name  "tiendalunaria-bot"
@@ -46,7 +56,7 @@ jobs:
             # el repositorio quedo adelante: se absorbe con rebase (el panel
             # solo toca data/configuracion.js, nunca catalogo.js ni el Excel,
             # asi que no hay conflicto posible) y se reintenta el push.
-            if ! git pull --rebase origin main; then
+            if ! git pull --rebase origin "${{ github.ref_name }}"; then
               echo "No se pudo absorber lo publicado por el panel; el catalogo se regenera en la proxima corrida."
               exit 1
             fi
@@ -54,3 +64,35 @@ jobs:
           else
             echo "Sin cambios: el catalogo ya estaba al dia."
           fi
+
+      - name: Abrir o actualizar issue si fallo
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const {data: abiertas} = await github.rest.issues.listForRepo({
+              ...context.repo, state: 'open', labels: 'sync-catalogos', per_page: 1});
+            const cuerpo = '### 🔴 Sync de catálogo falló\n'
+              + 'Corrida: ' + new Date().toISOString() + ' ([log completo]('
+              + context.serverUrl + '/' + context.repo.owner + '/' + context.repo.repo
+              + '/actions/runs/' + context.runId + '))\n\n'
+              + 'Lo publicado (catalogo.js, Excel, imágenes) NO se tocó: queda la versión anterior '
+              + 'hasta que una corrida sana lo reemplace.';
+            if (abiertas.length) {
+              await github.rest.issues.createComment({...context.repo, issue_number: abiertas[0].number, body: cuerpo});
+            } else {
+              await github.rest.issues.create({...context.repo, title: '🔴 Cron: sync de catálogo falló', labels: ['sync-catalogos'], body: cuerpo});
+            }
+
+      - name: Cerrar el issue si se recuperó
+        if: success()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const {data: abiertas} = await github.rest.issues.listForRepo({
+              ...context.repo, state: 'open', labels: 'sync-catalogos', per_page: 100});
+            for (const i of abiertas) {
+              await github.rest.issues.createComment({...context.repo, issue_number: i.number,
+                body: '✅ Sync de catálogo recuperado en ' + new Date().toISOString() + ' — cierro.'});
+              await github.rest.issues.update({...context.repo, issue_number: i.number, state: 'closed'});
+            }
