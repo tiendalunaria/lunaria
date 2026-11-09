@@ -1,6 +1,6 @@
 // ======================================================================
 // catalogo.js de LUNARIA - generado automaticamente por scripts/sync_catalogos.py
-// (2026-11-08 18:30). NO editar a mano: el cron de GitHub Actions lo regenera.
+// (2026-11-09 00:44). NO editar a mano: el cron de GitHub Actions lo regenera.
 // Fuentes: inventario propio de la marca (gestión interna de LUNARIA)
 // ======================================================================
 const CATALOGO_LUNARIA=[
