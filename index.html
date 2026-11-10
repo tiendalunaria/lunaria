@@ -1442,6 +1442,15 @@ function track(ev,params){
 
 /* ===== Estado ===== */
 let cart=ls("lunaria-cart",[]),favs=ls("lunaria-favs",[]),selQty={},selVar={},filter="todo",onlyFav=false,orden="n",pagina=1,listadoActual=[],upsellAbierto=true;
+/* Estado corrupto o viejo en localStorage no tumba la tienda: se normaliza. */
+if(!Array.isArray(cart))cart=[];
+if(!Array.isArray(favs))favs=[];
+/* Lineas fantasma: si el sync retiro un producto del catalogo, las lineas
+   guardadas apuntarian a productos inexistentes. El badge las contaba pero
+   el subtotal y la barra de pago no (numeros distintos para el cliente,
+   riesgo S1). Se descartan al arrancar y se persiste la limpieza. */
+const cartValida=it=>it&&it.id&&prod(it.id)&&Number(it.qty)>0;
+if(cart.some(it=>!cartValida(it))){cart=cart.filter(cartValida);sv("lunaria-cart",cart);}
 function cartResumen(){let count=0,total=0;cart.forEach(it=>{const p=prod(it.id);if(p){count+=it.qty;total+=p.p*it.qty}});return{count:count,total:total};}
 
 /* ===== Navegación y categorías ===== */
@@ -1684,7 +1693,9 @@ function updateCartQty(i,d){
 function removeCartItem(i){cart.splice(i,1);sv("lunaria-cart",cart);renderCart();}
 function vaciarCarrito(){cart=[];selQty={};sv("lunaria-cart",cart);renderCart();}
 function updateCounts(){
-  const n=cart.reduce((s,i)=>s+i.qty,0);
+  /* Mismo criterio que cartResumen: una linea fantasma (producto retirado
+     del catalogo) no puede inflar el badge del carrito. */
+  const n=cartResumen().count;
   [["cartCount",n],["floatingCartCount",n]].forEach(par=>{
     const el=$(par[0]);if(!el)return;
     const prev=Number(el.textContent)||0;

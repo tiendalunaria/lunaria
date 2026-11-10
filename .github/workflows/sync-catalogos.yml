@@ -60,7 +60,20 @@ jobs:
               echo "No se pudo absorber lo publicado por el panel; el catalogo se regenera en la proxima corrida."
               exit 1
             fi
-            git push
+            # Si otro push entra justo entre el rebase y el push, el push
+            # sale rechazado: se reabsorbe y se reintenta (3 intentos) en
+            # vez de fallar la corrida.
+            ok=0
+            for i in 1 2 3; do
+              if git push; then ok=1; break; fi
+              echo "Push rechazado (intento $i); reabsorbiendo cambios remotos..."
+              git pull --rebase origin "${{ github.ref_name }}" || exit 1
+              sleep 2
+            done
+            if [ "$ok" != "1" ]; then
+              echo "No se pudo publicar tras 3 intentos; el catalogo se regenera en la proxima corrida."
+              exit 1
+            fi
           else
             echo "Sin cambios: el catalogo ya estaba al dia."
           fi
