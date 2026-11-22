@@ -1,6 +1,6 @@
 // ======================================================================
 // catalogo.js de LUNARIA - generado automaticamente por scripts/sync_catalogos.py
-// (2026-11-22 14:07). NO editar a mano: el cron de GitHub Actions lo regenera.
+// (2026-11-22 23:16). NO editar a mano: el cron de GitHub Actions lo regenera.
 // Fuentes: inventario propio de la marca (gestión interna de LUNARIA)
 // ======================================================================
 const CATALOGO_LUNARIA=[
@@ -63,9 +63,9 @@ const CATALOGO_LUNARIA=[
 {id:"m42",n:"Bluson Bolsillo",p:36000,cat:"conjuntos",prov:"l2",cid:"LUN-0042",img:"img/p/6e84e9d7f625318f.webp",imgs:["img/p/2186b17d16d63ba2.webp","img/p/cfaaecc2eed6e081.webp"],var:{"Estampado":["Vellota","Bom Bom","Oso Cariñoso"]},sku:"BB-001"},
 {id:"m41",n:"Pantalon Camiseta",p:36000,cat:"pantalones",prov:"l2",cid:"LUN-0041",img:"img/p/2559efaf5f307f31.webp",imgs:["img/p/15f093204e4be36d.webp","img/p/517b995c465a6c5e.webp","img/p/68acefedeb795a3f.webp"],var:{"Estampado":["Carlitos","Cerdito","Chimuelo","Piolin","Vaquita","Koala","Pluto","Capibara Flor"]},sku:"PCD103"},
 {id:"m43",n:"Vestido Moschino",p:36000,cat:"conjuntos",prov:"l2",cid:"LUN-0043",img:"img/p/1bae28254d4bdc42.webp",imgs:["img/p/960646f8a06c2b4a.webp","img/p/069936c07fafc2ae.webp","img/p/de3d48adca2f9810.webp"],var:{"Estampado":["Galfier","Donald","Bob Esponja","Stich","Angelica","Hello Kitty"]},sku:"VES-001"},
-{id:"m105",n:"Capri Camisa",p:34000,cat:"pantalones",prov:"l2",cid:"LUN-0097",img:"img/p/a3b5b390fd4f2d1e.webp",imgs:["img/p/bffaf6a43321b719.webp","img/p/b3e38de8fbf18bfe.webp","img/p/792a051c12ddf03d.webp"],var:{"Estampado":["Abeja","Osa Moño","Elefante Moño","Laddy","Oso Print","Deisy","Pucca","Moschino"]}},
+{id:"m101",n:"Capri Camisa",p:34000,cat:"pantalones",prov:"l2",cid:"LUN-0081",img:"img/p/a3b5b390fd4f2d1e.webp",imgs:["img/p/bffaf6a43321b719.webp","img/p/b3e38de8fbf18bfe.webp","img/p/792a051c12ddf03d.webp"],var:{"Estampado":["Abeja","Osa Moño","Elefante Moño","Laddy","Oso Print","Deisy","Pucca","Moschino"]}},
 {id:"m44",n:"Pijama en Satin",p:34000,cat:"pijamas",prov:"l2",cid:"LUN-0044",img:"img/p/84edb7deacf64caa.webp",sku:"PS-0532"},
-{id:"m101",n:"Capri Camisa",p:34000,cat:"pantalones",prov:"l2",cid:"LUN-0081",img:"img/p/c99037fd8b7f302a.webp",imgs:["img/p/70268bb84b6ab5ae.webp","img/p/32fc5c53924a0d47.webp"],var:{"Estampado":["Vaquita","Avocado","Cerdito Morado"]},sku:"CAP-004"},
+{id:"m103",n:"Capri Camisa",p:34000,cat:"pantalones",prov:"l2",cid:"LUN-0095",img:"img/p/c99037fd8b7f302a.webp",imgs:["img/p/70268bb84b6ab5ae.webp","img/p/32fc5c53924a0d47.webp"],var:{"Estampado":["Vaquita","Avocado","Cerdito Morado"]},sku:"CAP-004"},
 {id:"m45",n:"Pantalon Tiras",p:34000,cat:"pantalones",prov:"l2",cid:"LUN-0045",img:"img/p/a2068959837dc9c7.webp",imgs:["img/p/fd2f517b4f6ae53d.webp","img/p/f0639e795704f184.webp","img/p/788c18e06ff4f93f.webp"],var:{"Estampado":["Kitty","Labubu","Oso lottso","Pantera Rosa","Snoopy","Capibara Cafe","Jirafa Tierna","Pato Donald"]},sku:"PAD-001"},
 {id:"m47",n:"Set Paris",p:33000,cat:"interior",prov:"l2",cid:"LUN-0047",img:"img/p/b37a5ffd1e89eb30.webp",imgs:["img/p/32d9fd3e1167ed47.webp","img/p/3567a4c60ca88c56.webp","img/p/95578915422e124c.webp"],var:{"Talla":["S","M","L"],"Estampado":["Vinotinto","Blanco","Negro","Rojo"]}},
 {id:"m48",n:"Pantalon Corte Medio",p:33000,cat:"pantalones",prov:"l2",cid:"LUN-0048",img:"img/p/45f263dbe8cd94cf.webp",imgs:["img/p/7b5d1a4ca4095128.webp","img/p/c1c7ce68a092d9cb.webp","img/p/1dfd167fc38a7100.webp"],sku:"PCDM-"},
